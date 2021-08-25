@@ -1,0 +1,109 @@
+<div class="container" *ngIf="curOverviewStats"
+    [class.overview]="!curSelectedNode">
+  <div class="section">
+    <div class="title">
+      Overview
+    </div>
+    <div class="overview-stats-container">
+      <div class="overview-stats-item">
+        <div class="overview-number">
+          {{curOverviewStats.totalNodesCount}}
+        </div>
+        <div class="overview-stats-label">
+          Total nodes
+        </div>
+      </div>
+      <div class="overview-stats-item">
+        <div class="overview-number bad">
+          {{curOverviewStats.badNodesCount}}
+        </div>
+        <div class="overview-stats-label">
+          Bad nodes
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <mat-divider *ngIf="curSelectedNode"></mat-divider>
+
+  <div class="section selected-node" [class.hidden]="!curSelectedNode">
+    <div class="title">
+      Selected node
+    </div>
+    <div class="msg" *ngIf="!curSelectedNode; else nodeDetails">
+      Select a node to see its details here
+    </div>
+    <ng-template #nodeDetails>
+      <div class="node-details-container">
+        <div class="sub-section first">
+          <div class="title">
+            Name
+          </div>
+          <div class="node-name">
+            {{selectedNodeName}}
+          </div>
+        </div>
+
+        <div class="sub-section">
+          <div class="title">
+            Overall diff
+          </div>
+          <div class="diff-value" [class.bad]="isSelectedNodeDiffBad">
+            {{selectedNodeDiffPct}}
+          </div>
+        </div>
+
+        <div class="sub-section">
+          <div class="title">
+            Input{{selectedNodeInputs.length === 1 ? '' : 's'}}
+          </div>
+          <ul class="input-list">
+            <li class="input-item" *ngFor="let input of selectedNodeInputs">
+              <div class="input-name">
+                {{input.id}}
+              </div>
+              <div class="input-shape">
+                {{getInputShape(input)}}
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="sub-section data-values-section">
+          <div class="title">
+            Output
+          </div>
+          <div class="shape">
+            {{selectedNodeShape}}
+          </div>
+          <div class="headers-container">
+            <div class="header-backend">
+              {{curBackends[0].label}}
+            </div>
+            <div class="header-backend">
+              {{curBackends[1].label}}
+            </div>
+            <div class="header-diff">
+              Diff
+            </div>
+          </div>
+          <cdk-virtual-scroll-viewport itemSize="20" class="values-container">
+            <div *cdkVirtualFor="let item of curDataValueItems"
+                class="value-item">
+              <div class="config-value">
+                {{item.value1}}
+              </div>
+              <div class="config-value">
+                {{item.value2}}
+              </div>
+              <div class="config-value-diff" [class.bad]="isDataValueBad(item)">
+                {{getDataValueDiff(item)}}
+              </div>
+            </div>
+          </cdk-virtual-scroll-viewport>
+        </div>
+
+      </div>
+    </ng-template>
+  </div>
+</div>

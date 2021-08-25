@@ -1,0 +1,49 @@
+<div class="container">
+
+  <div class="section">
+    <div class="title">Model URL</div>
+    <mat-form-field class="model-url-input full-width" appearance="outline">
+      <textarea matInput #input
+          [matTextareaAutosize]="true"
+          (input)="handleModelUrlChanged(input.value)">{{curModelUrl}}</textarea>
+    </mat-form-field>
+  </div>
+
+  <div class="section">
+    <div class="title">Config 1</div>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Backend</mat-label>
+      <mat-select [(value)]="curSelectedBackend1">
+        <mat-option
+            *ngFor="let backend of backends"
+            [value]="backend">
+          {{backend.label}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="section">
+    <div class="title">Config 2</div>
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Backend</mat-label>
+      <mat-select [(value)]="curSelectedBackend2">
+        <mat-option
+            *ngFor="let backend of backends"
+            [value]="backend">
+          {{backend.label}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="section btn-container">
+    <button mat-flat-button color="primary"
+        class="full-width"
+        [disabled]="isStartButtonDisabled"
+        (click)="handleClickStartButton()">
+      Start
+    </button>
+  </div>
+
+</div>

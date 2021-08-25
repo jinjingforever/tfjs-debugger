@@ -1,0 +1,191 @@
+@use '../../variables' as var;
+
+$value-column-width: 100px;
+
+.container {
+  transition: height 200ms ease-in-out;
+  width: 280px;
+  height: 600px;
+  border: 1px solid var.$light-border-color;
+  border-radius: 8px;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  box-shadow: 0 2px 4px rgb(0 0 0 / 30%);
+  background-color: white;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+
+  &.overview {
+    height: 76px;
+  }
+
+  .section {
+    .title {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .msg {
+      justify-content: center;
+      align-items: center;
+      color: var.$text_low_on_light_color;
+      display: flex;
+      flex-grow: 1;
+    }
+
+    .node-details-container {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      overflow: hidden;
+    }
+
+    &.selected-node {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      overflow: hidden;
+
+      &.hidden {
+        display: none;
+      }
+    }
+  }
+
+  .sub-section {
+    margin-top: 18px;
+
+    &.first {
+      margin-top: 6px;
+    }
+
+    .title {
+      font-size: 13px;
+      font-weight: 500;
+      line-height: 13px;
+      color: var.$text_mid_on_light_color;
+    }
+
+    .node-name {
+      font-size: 13px;
+      word-break: break-all;
+      line-height: 14px;
+    }
+
+    .diff-value {
+      font-weight: 700;
+      color: var.$text_low_on_light_color;
+
+      &.bad {
+        color: #aa0000;
+      }
+    }
+
+    .input-list {
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-left: 26px;
+    }
+
+    .input-item {
+      margin-bottom: 2px;
+    }
+
+    .input-name {
+      line-height: 13px;
+      word-break: break-all;
+    }
+
+    .input-shape {
+      color: var.$text_mid_on_light_color;
+    }
+
+    .headers-container {
+      display: flex;
+      font-size: 12px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .header-backend {
+      width: $value-column-width;
+      box-sizing: border-box;
+    }
+
+    .values-container {
+      flex-grow: 1;
+      overflow-x: hidden;
+    }
+
+    .value-item {
+      display: flex;
+    }
+
+    .config-value {
+      width: $value-column-width;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 11px;
+      padding-right: 16px;
+      box-sizing: border-box;
+    }
+
+    .config-value-diff {
+      font-size: 11px;
+      color: var.$text_low_on_light_color;
+
+      &.bad {
+        color: #aa0000;
+        font-weight: 700;
+      }
+    }
+
+    &.data-values-section {
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      flex-grow: 1;
+    }
+
+    .shape {
+      color: var.$text_mid_on_light_color;
+    }
+  }
+
+  .mat-divider {
+    margin: 12px 0;
+    border-top-color: rgba(0, 0, 0, .08);
+  }
+
+  .overview-stats-container {
+    display: flex;
+    margin-top: 12px;
+  }
+
+  .overview-stats-item {
+    display: flex;
+    flex-direction: column;
+    margin-right: 24px;
+
+    .overview-number {
+      font-size: 28px;
+      font-weight: 500;
+      color: var.$text_mid_on_light_color;
+
+      &.bad {
+        color: #aa0000;
+      }
+    }
+
+    .overview-stats-label {
+      font-size: 12px;
+      color: var.$text_low_on_light_color;
+    }
+  }
+
+  &.hide {
+    display: none;
+  }
+}

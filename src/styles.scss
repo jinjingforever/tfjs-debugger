@@ -1,0 +1,12 @@
+@use 'variables' as var;
+
+body {
+  font-family: var.$font-face !important;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+html {
+  height: 100%;
+}

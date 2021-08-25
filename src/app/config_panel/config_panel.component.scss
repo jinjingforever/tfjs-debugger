@@ -1,0 +1,34 @@
+@use '../../variables' as var;
+
+.container {
+  background-color: var.$super-light-background-color;
+  width: 240px;
+  height: 100%;
+  border-right: 1px solid var.$light-border-color;
+  padding: 24px 12px;
+  box-sizing: border-box;
+
+  .section {
+    .title {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+  }
+
+  .model-url-input {
+    ::ng-deep .mat-form-field-infix {
+      border-top: none;
+    }
+  }
+
+  .full-width {
+    width: 100%;
+  }
+
+  .btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 24px;
+  }
+}

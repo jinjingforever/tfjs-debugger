@@ -1,0 +1,92 @@
+@use '../../variables' as var;
+@use '../../theme' as theme;
+
+:host {
+  flex-grow: 1;
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+}
+
+::ng-deep svg {
+  g.node-group-with-data {
+    cursor: pointer;
+
+    &.const-node {
+      text.node-diff, path.node-op-separator {
+        display: none;
+      }
+    }
+    &:hover rect.node-border {
+      stroke: black;
+    }
+
+    &.selected rect.node-border {
+      stroke-width: 3;
+      stroke: theme.$primary-color;
+    }
+  }
+
+  path.link {
+    fill: none;
+    stroke-width: 1;
+    stroke: #bbb;
+  }
+
+  rect.node-bg {
+    fill: white;
+    stroke: none;
+  }
+
+  rect.node-error-bg {
+    stroke: none;
+  }
+
+  rect.node-border {
+    fill: none;
+    stroke: #444;
+    stroke-width: 2;
+  }
+
+  rect.node-op-bg {
+    fill: #e3e3e3;
+    stroke: none;
+  }
+
+  text.node-op {
+    dominant-baseline: middle;
+    font-size: 13px;
+    font-weight: 500;
+    font-family: var.$font-face;
+  }
+
+  text.node-diff {
+    dominant-baseline: hanging;
+    font-size: 12px;
+    font-family: var.$font-face;
+    // stroke: rgba(255, 255, 255, .7);
+    // stroke-width: 3;
+    // paint-order: stroke;
+    // stroke-linecap: butt;
+    // stroke-linejoin: miter;
+  }
+
+  path.node-op-separator {
+    stroke: #666;
+    stroke-width: 1;
+  }
+
+  &.hide {
+    display: none;
+  }
+}
+
+.status-msg {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var.$text_low_on_light_color;
+}

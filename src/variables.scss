@@ -1,0 +1,12 @@
+$font-face: 'Google Sans', sans-serif;
+
+$super-light-background-color: rgba(0, 0, 0, 0.02);
+$light-border-color: #efefef;
+
+// Text colors organized by alpha value from high to very-low.
+$text_high_on_light_color: rgba(0, 0, 0, 0.87);
+$text_mid_on_light_color: rgba(0, 0, 0, 0.54);
+$text_mid_high_on_light_color: rgba(0, 0, 0, 0.7);
+$text_mid_low_on_light_color: rgba(0, 0, 0, 0.46);
+$text_low_on_light_color: rgba(0, 0, 0, 0.38);
+$text_very_low_on_light_color: rgba(0, 0, 0, 0.12);
