@@ -16,5 +16,5 @@ if (environment.production) {
 platformBrowserDynamic().bootstrapModule(AppModule).catch(
     err => console.error(err));
 
-tfwasm.setWasmPaths(
-    'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm/dist/');
+tfwasm.setWasmPaths('http://localhost:4200/assets/wasm/');
+// 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-backend-wasm/dist/');
