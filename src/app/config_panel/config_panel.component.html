@@ -4,7 +4,7 @@
     <div class="title">Model URL</div>
     <mat-form-field class="model-url-input full-width" appearance="outline">
       <textarea matInput #input
-          [matTextareaAutosize]="true"
+          [cdkTextareaAutosize]="true"
           (input)="handleModelUrlChanged(input.value)">{{curModelUrl}}</textarea>
     </mat-form-field>
   </div>

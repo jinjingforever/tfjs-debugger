@@ -97,5 +97,8 @@
       }
     }
   },
-  "defaultProject": "tfjs-debugger"
+  "defaultProject": "tfjs-debugger",
+  "cli": {
+    "analytics": "34a6cbab-fba7-420e-ac9e-144cd661ead7"
+  }
 }
